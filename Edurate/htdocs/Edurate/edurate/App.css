@@ -1,0 +1,145 @@
+body {
+  background-image: url("C:/Users/Lenovo/Downloads/EduRate Files-20231124T130103Z-001/EduRate Files/background2.png");
+  background-size: cover;
+  background-position: center;
+  font-family: 'Montserrat', sans-serif;
+  overflow: hidden;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}
+
+form {
+  max-width: 300px;
+  margin-top: 300px;
+  margin-bottom: 0 auto;
+  padding: 20px;
+  
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  color:#ffffff;
+}
+
+.icon-input-container {
+  position: relative;
+  margin-bottom: 15px; 
+}
+
+.user-icon {
+  position: absolute;
+  left: 10px; 
+  top: 50%;
+  transform: translateY(-50%);
+  color:#ffffff;
+}
+
+.lock-icon {
+  position: absolute;
+  right: 25px; 
+  top: 14%;
+  transform: translateY(-50%);
+  color:#ffffff;
+}
+
+.password-input::placeholder {
+  text-align: right;
+  padding-right: 30px;
+  color:#d9d9d9;
+}
+
+.user-input::placeholder {
+  color:#d9d9d9;
+}
+
+.user-input {
+  padding-left: 30px;
+  border: none !important;  
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  background: linear-gradient(90deg, rgba(210,0,0,1) 0%, rgba(138,0,0,0.583158263305322) 50%, rgba(0,0,0,0) 100%);
+  padding-bottom: 10px !important;
+  padding-top: 10px !important;
+}
+
+.password-input {
+  padding-left: 30px; 
+  border: none !important;  
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background: linear-gradient(90deg, rgba(0,0,0,0.006127450980392135) 0%, rgba(138,0,0,0.583158263305322) 50%, rgba(210,0,0,1) 100%);
+  padding-bottom: 10px !important;
+  padding-top: 10px !important;
+}
+
+
+button {
+  background-color: rgb(30, 0, 197);
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+}
+
+h5, h2 {
+  color: white;
+  text-align:center;
+}
+
+h5{
+  margin-top: 0 !important;
+}
+
+h6{
+  margin-top:2px;
+  color:#ffffff;
+}
+
+.container {
+  height: 100vh; /* Set to 100% of viewport height */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: url("C:/Users/Lenovo/Downloads/EduRate Files-20231124T130103Z-001/EduRate Files/background2.png");
+  background-size: cover;
+  background-position: center;
+}
+
+
+
+
+
