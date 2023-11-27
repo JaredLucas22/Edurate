@@ -1,13 +1,17 @@
 <?php
 session_start(); // Start the session
 
-
 include("sqllogin.php");
 $connection = mysqli_connect($servername, $username, $password, $database, $port);
 
 if (!$connection) {
     die("Connection failed: " . mysqli_connect_error());
 }
+
+// Clear existing session data
+session_unset();
+session_destroy();
+session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $enteredUsername = $_POST["username"];
@@ -19,7 +23,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($result && mysqli_num_rows($result) > 0) {
         $user = mysqli_fetch_assoc($result);
-        header("home.php");
+
+        // Store user ID in session for future use
+        $_SESSION["user_id"] = $user["User_ID"];
+
+        header("Location: home.php");
+        exit();
     } else {
         echo "Invalid username or password.";
     }
