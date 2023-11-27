@@ -26,7 +26,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Store user ID in session for future use
         $_SESSION["user_id"] = $user["User_ID"];
-
         header("Location: home.php");
         exit();
     } else {
