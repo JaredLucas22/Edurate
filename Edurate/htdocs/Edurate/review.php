@@ -1,5 +1,4 @@
 <?php
-session_start(); // Start the session
 
 include("sqllogin.php"); // Adjust this to your actual database connection details
 

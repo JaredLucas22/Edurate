@@ -46,6 +46,7 @@ if ($result && mysqli_num_rows($result) > 0) {
 
 // Include the review.php file
 include("review.php");
+include("submitted.php");
 
 ?>
 
