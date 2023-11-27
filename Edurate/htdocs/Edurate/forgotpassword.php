@@ -10,22 +10,25 @@
 
 <body>
 
-<form action="forgot_password.php" method="post">
+<form action="forgotpassword.php" method="post">
     <label for="username">Username:</label>
     <input type="text" id="username" name="username" required>
+
+    <label for="new_password">New Password:</label>
+    <input type="password" id="new_password" name="new_password" required>
+
+    <label for="confirm_password">Confirm Password:</label>
+    <input type="password" id="confirm_password" name="confirm_password" required>
+
+    <input type="hidden" name="token" value='<?php echo $_GET['token']; ?>'>
+
+
     <input type="submit" value="Reset Password">
 </form>
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "edurate";
-$port = "3307";
-
-// Create connection
+include("sqllogin.php");
 $connection = mysqli_connect($servername, $username, $password, $database, $port);
 
-// Check connection
 if (!$connection) {
     die("Connection failed: " . mysqli_connect_error());
 }
@@ -33,30 +36,29 @@ if (!$connection) {
 // If the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = mysqli_real_escape_string($connection, $_POST["username"]);
+    $newPassword = $_POST["new_password"];
+    $confirmPassword = $_POST["confirm_password"];
+    $token = mysqli_real_escape_string($connection, $_POST["token"]);
 
-    // Check if the username exists in the database (customize this query based on your needs)
-    $checkQuery = "SELECT * FROM user WHERE User_Name = '$username'";
-    $result = mysqli_query($connection, $checkQuery);
-
-    if (mysqli_num_rows($result) > 0) {
-        // Generate a unique token (you can customize this)
-        $token = bin2hex(random_bytes(32));
-
-        // Store the token in the database (customize this query based on your needs)
-        $updateQuery = "UPDATE user SET Reset_Token = '$token' WHERE User_Name = '$username'";
-        mysqli_query($connection, $updateQuery);
-
-        // Send a password reset email to the user with the token (customize this part)
-        $to = "user@example.com"; // replace with the user's email from your database
-        $subject = "Password Reset";
-        $message = "Click the link to reset your password: http://yourwebsite.com/reset_password.php?token=$token&username=$username";
-
-        // Use appropriate headers, and consider using a library like PHPMailer for production
-        mail($to, $subject, $message);
-
-        echo "Password reset instructions sent to your email.";
+    // Verify that the passwords match
+    if ($newPassword !== $confirmPassword) {
+        echo "Passwords do not match. Please try again.";
     } else {
-        echo "Username not found. Please check your input.";
+        // Check if the username and token match in the database
+        $checkQuery = "SELECT * FROM user WHERE User_Name = '$username' AND Reset_Token = '$token'";
+        $result = mysqli_query($connection, $checkQuery);
+
+        if ($result && mysqli_num_rows($result) > 0) {
+            // Passwords match and username/token are valid, update the password
+            $hashedPassword = password_hash($newPassword, PASSWORD_BCRYPT);
+
+            $updateQuery = "UPDATE user SET User_Password = '$hashedPassword', Reset_Token = NULL WHERE User_Name = '$username'";
+            mysqli_query($connection, $updateQuery);
+
+            echo "Password reset successfully. You can now login with your new password.";
+        } else {
+            echo "Invalid username or token. Please check your input.";
+        }
     }
 }
 

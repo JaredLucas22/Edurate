@@ -29,12 +29,7 @@
     <input type="submit" value="Sign Up">
 </form>
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "edurate";
-$port = "3307";
-
+include("sqllogin.php");
 // Create connection
 $connection = mysqli_connect($servername, $username, $password, $database, $port);
 

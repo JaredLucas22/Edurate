@@ -20,15 +20,12 @@
         <input type="submit" value="Login">
     </form>
 </div>
-<a href="signup.php">Sign up</a>
-
+<ul>
+<ol><a href="signup.php">Sign up</ol>
+<ol><a href="forgotpassword.php">Forgot Password</a></ol>
+</ul>
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "edurate";
-$port = "3307";
-
+include("sqllogin.php");
 $connection = mysqli_connect($servername, $username, $password, $database, $port);
 
 if (!$connection) {
