@@ -5,7 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Dashboard</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Add this style for the rating buttons */
+        .rating-container {
+            display: flex;
+            align-items: center;
+        }
 
+        .rating-button {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #ddd;
+            margin: 0 5px;
+            cursor: pointer;
+            border: none;
+        }
+
+        /* Add this style for the selected rating */
+        .rating-button.selected {
+            background-color: #ffcc00; /* You can change this color as needed */
+        }
+    </style>
 </head>
 <body>
 
@@ -16,13 +37,14 @@
         <input type="text" id="subject" name="subject" required>
 
         <label for="rating">Rating:</label>
-        <select id="rating" name="rating" required>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-        </select>
+        <div class="rating-container">
+            <!-- Add five ellipse buttons for the rating -->
+            <?php for ($i = 1; $i <= 5; $i++) { ?>
+                <button type="button" class="rating-button" data-rating="<?php echo $i; ?>"><?php echo $i; ?></button>
+            <?php } ?>
+        </div>
+        <!-- Add the hidden input for the selected rating -->
+        <input type="hidden" id="rating" name="rating" value="">
 
         <label for="comment">Comment:</label>
         <textarea id="comment" name="comment" rows="4" required></textarea>
@@ -50,6 +72,24 @@ include("review.php");
 include("submitted.php");
 
 ?>
+
+<!-- Add JavaScript to handle the rating selection -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var ratingButtons = document.querySelectorAll('.rating-button');
+
+        ratingButtons.forEach(function (button) {
+            button.addEventListener('click', function () {
+                ratingButtons.forEach(function (btn) {
+                    btn.classList.remove('selected');
+                });
+
+                button.classList.add('selected');
+                document.getElementById('rating').value = button.getAttribute('data-rating');
+            });
+        });
+    });
+</script>
 
 </body>
 </html>
