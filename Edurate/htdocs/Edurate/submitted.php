@@ -13,7 +13,10 @@ if (!$connection) {
 $reviewerID = $_SESSION["user_id"];
 
 // Fetch reviews for the logged-in user
-$query = "SELECT * FROM ratings WHERE ReviewerID = '$reviewerID'";
+$query = "SELECT r.*, u.User_Name AS SubjectID FROM ratings r
+          JOIN user u ON r.SubjectID = u.User_ID
+          WHERE SubjectID = '$reviewerID'";
+
 $result = mysqli_query($connection, $query);
 
 if ($result && mysqli_num_rows($result) > 0) {

@@ -1,7 +1,6 @@
 <?php
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
+session_start(); // Start the session
+
 include("sqllogin.php");
 $connection = mysqli_connect($servername, $username, $password, $database, $port);
 
@@ -9,30 +8,33 @@ if (!$connection) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-// Assuming you store the user ID in the session during login
-$reviewerID = $_SESSION["user_id"];
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Assuming you store the user ID in the session during login
+    $reviewerID = $_SESSION["user_id"];
+    $rating = $_POST["rating"];
+    $comment = $_POST["comment"];
+    $subjectUsername = $_POST["subject"]; // Assuming subject now contains the username
 
-// Fetch reviews for the logged-in user with the User_Name as Subject
-$query = "SELECT r.*, u.User_Name 
-          FROM ratings r
-          INNER JOIN user u ON r.SubjectID = u.User_ID
-          WHERE r.ReviewerID = '$reviewerID'";
-$result = mysqli_query($connection, $query);
+    // Get the User_ID of the user being reviewed
+    $subjectQuery = "SELECT User_ID FROM user WHERE User_Name = '$subjectUsername'";
+    $subjectResult = mysqli_query($connection, $subjectQuery);
 
-if ($result && mysqli_num_rows($result) > 0) {
-    // Display the user's reviews
-    echo "<div class='reviews-container'>";
-    echo "<h2>Your Reviews</h2>";
-    while ($review = mysqli_fetch_assoc($result)) {
-        echo "<div class='review'>";
-        echo "<p><strong>Subject:</strong> " . $review["User_Name"] . "</p>";
-        echo "<p><strong>Rating:</strong> " . $review["Rating"] . "</p>";
-        echo "<p><strong>Comment:</strong> " . $review["Comment"] . "</p>";
-        echo "</div>";
+    if ($subjectResult && mysqli_num_rows($subjectResult) > 0) {
+        $subjectRow = mysqli_fetch_assoc($subjectResult);
+        $subjectID = $subjectRow["User_ID"];
+
+        // Insert the review into the database
+        $query = "INSERT INTO ratings (ReviewerID, SubjectID, Rating, Comment) 
+                  VALUES ('$reviewerID', '$subjectID', '$rating', '$comment')";
+
+        if (mysqli_query($connection, $query)) {
+            echo "Review submitted successfully!";
+        } else {
+            echo "Error: " . $query . "<br>" . mysqli_error($connection);
+        }
+    } else {
+        echo "Error: Subject not found.";
     }
-    echo "</div>";
-} else {
-    echo "You have no reviews yet.";
 }
 
 mysqli_close($connection);
