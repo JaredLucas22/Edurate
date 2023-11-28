@@ -8,24 +8,29 @@
     <style>
         /* Add this style for the rating buttons */
         .rating-container {
-            display: flex;
-            align-items: center;
-        }
+  display: flex;
+  align-items: center;
+}
 
-        .rating-button {
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            background-color: #ddd;
-            margin: 0 5px;
-            cursor: pointer;
-            border: none;
-        }
+.rating-button {
+  --ellipse-color: orange; /* You can change this color as needed */
+  width: 1em;
+  height: 0.7em;
+  background-color: var(--ellipse-color);
+  border-radius: 50%;
+  margin: 1em auto;
+  font-size: 10em;
+  position: relative;
+  display: block;
+}
 
-        /* Add this style for the selected rating */
-        .rating-button.selected {
-            background-color: #ffcc00; /* You can change this color as needed */
-        }
+/* Add this style for the selected rating */
+.rating-button.selected {
+  --ellipse-color-selected: red; /* You can change this color to red */
+  background-color: var(--ellipse-color-selected);
+}
+
+
     </style>
 </head>
 <body>
@@ -40,7 +45,7 @@
         <div class="rating-container">
             <!-- Add five ellipse buttons for the rating -->
             <?php for ($i = 1; $i <= 5; $i++) { ?>
-                <button type="button" class="rating-button" data-rating="<?php echo $i; ?>"><?php echo $i; ?></button>
+                <button type="button" class="rating-button" data-rating="<?php echo $i; ?>"></button>
             <?php } ?>
         </div>
         <!-- Add the hidden input for the selected rating -->
@@ -78,13 +83,16 @@ include("submitted.php");
     document.addEventListener('DOMContentLoaded', function () {
         var ratingButtons = document.querySelectorAll('.rating-button');
 
-        ratingButtons.forEach(function (button) {
+        ratingButtons.forEach(function (button, index) {
             button.addEventListener('click', function () {
-                ratingButtons.forEach(function (btn) {
-                    btn.classList.remove('selected');
-                });
+                for (var i = 0; i <= index; i++) {
+                    ratingButtons[i].classList.add('selected');
+                }
 
-                button.classList.add('selected');
+                for (var i = index + 1; i < ratingButtons.length; i++) {
+                    ratingButtons[i].classList.remove('selected');
+                }
+
                 document.getElementById('rating').value = button.getAttribute('data-rating');
             });
         });
