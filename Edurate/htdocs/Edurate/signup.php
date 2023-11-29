@@ -4,25 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Form</title>
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet"href="styles/loginstyle.css">
+<link rel="stylesheet" href="styles/signupstyle.css">
 </head>
 <body>
 
 <form action="" method="post">
-    <label for="first_name">First Name:</label>
-    <input type="text" id="first_name" name="first_name" required>
 
-    <label for="last_name">Last Name:</label>
-    <input type="text" id="last_name" name="last_name" required>
+<h5>EduRate</h5>
+<h2>Sign up Now!</h2>
 
-    <label for="username">Username:</label>
-    <input type="text" id="username" name="username" required>
+<input class="first-name" type="text" id="first_name" name="first_name" placeholder="First Name" required>
 
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password" required>
+<input class="last-name" type="text" id="last_name" name="last_name" placeholder="Last Name" required>
+
+<input class="user-name" type="text" id="username" name="username" placeholder="Username" required>
+    
+<input class="password" type="text" id="password" name="password" placeholder="Password" required>
+    
 
     <label for="user_type">User type:  </label>
-    <select name="user_type">
+    <select name="user_type" >
     <option value ="Student" name ="user_type">Student</option>
     <option value ="Teacher" name ="user_type">Teacher</option>
 
@@ -58,9 +60,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 mysqli_close($connection);
 ?>
-
-
-
 
 </body>
 </html>

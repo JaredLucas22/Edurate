@@ -4,22 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Form</title>
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="styles/loginstyle.css">
 </head>
 <body>
 
 <body>
 <form action="forgotpassword.php" method="post">
-    <label for="username">Username:</label>
-    <input type="text" id="username" name="username" required>
+<div>
+        <input class="user-input" type="text" id="username" name="username" placeholder="User ID" required>
+        <div class="user-icon"><i class="fas fa-user"></i></div>
+        </div>
 
-    <label for="new_password">New Password:</label>
-    <input type="password" id="new_password" name="new_password" required>
+        <div >
+            <input class="password-input" type="password" id="password" name="password" placeholder="Password " required>
+            <div class="lock-icon"><i class="fas fa-lock"></i></div>
+        </div>
 
-    <label for="confirm_password">Confirm Password:</label>
-    <input type="password" id="confirm_password" name="confirm_password" required>
+        <div >
+            <input class="user-input" type="password" id="password" name="password" placeholder="Password " required>
+            <div class="lock-icon"><i class="fas fa-lock"></i></div>
+        </div>
 
-    <input type="submit" value="Change Password">
+        <button class='buttons' type="submit"> Change Password </button>
 </form>
 <?php
 include("sqllogin.php");
