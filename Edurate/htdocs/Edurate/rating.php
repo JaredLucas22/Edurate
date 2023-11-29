@@ -56,6 +56,7 @@
 
     </style>
 </head>
+<link rel="stylsheet" href="styles/loginstyle.css">
 <body>
 
 <div class="review-container">
@@ -71,11 +72,9 @@
             <?php } ?>
         </div>
         <input type="hidden" id="rating" name="rating" value="">
-    </form>
 </div>
 
 <div class="feedback-container">
-<form id="myForm"  >
         <h2>What you liked:</h2>
         <input type="checkbox" id="expertise" name="expertise">
         <label for="expertise">Expertise and Knowledge</label><br>
@@ -103,8 +102,7 @@
         <label for="assessment">Assessment and Grading</label><br>
 
         <h2>Additional Comments:</h2>
-        <textarea id="additionalComments" name="additionalComments" rows="4" cols="50"></textarea><br>
-
+        <textarea id="comment" name="comment" rows="4" required></textarea>
         <input type="submit" value="Submit your feedback">
     </form>
 </div>
@@ -151,8 +149,23 @@
         });
     });
 </script>
-<?php 
-include("review.php")
+<?php
+include("user.php");
+
+// Fetch user data from the database based on the stored session user_id
+$userID = $_SESSION["user_id"];
+$query = "SELECT First_Name, Last_Name FROM user WHERE User_ID = '$userID'";
+$result = mysqli_query($connection, $query);
+
+if ($result && mysqli_num_rows($result) > 0) {
+    $user = mysqli_fetch_assoc($result);
+    echo "Welcome, " . $user["First_Name"] . " " . $user["Last_Name"] . "!";
+} else {
+    echo "Error fetching user data.";
+}
+
+// Include the review.php file
+include("review.php");
 ?>
 </body>
 </html>

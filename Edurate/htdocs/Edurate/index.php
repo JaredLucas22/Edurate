@@ -8,12 +8,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
-<div class="container">    
+<div class="container">   
     <form action="index.php" method="post" onsubmit="return validateForm()">
 
         <h5>University of the Assumption</h5>
         <h2>Sign in to EduRate</h2>
-        
+       
         <div>
         <input class="user-input" type="text" id="username" name="username" placeholder="User ID" required>
         <div class="user-icon"><i class="fas fa-user"></i></div>
@@ -25,13 +25,13 @@
             <div class="lock-icon"><i class="fas fa-lock"></i></div>
         </div>
 
-        
+       
         <button class='buttons' type="submit"> Login </button>
-        
+       
         <div id="error-message"></div>
 
-        <a class='buttons1' href="signup.php">Sign up</a>
-        <a class='buttons2' href="forgotpassword.php">Forgot Password</a>
+        <a class='buttons' style="text-align center;" href="signup.php">Sign up</a>
+        <a style="color: white; font-style: italic; text-decoration:none" href="forgotpassword.php">Forgot Password</a>
     </form></div>
 </body>
 <?php 
