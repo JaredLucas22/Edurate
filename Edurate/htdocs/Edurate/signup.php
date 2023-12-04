@@ -4,32 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Form</title>
-<link rel="stylesheet"href="styles/loginstyle.css">
-<link rel="stylesheet" href="styles/signupstyle.css">
+    <link rel="stylesheet" href="signupstyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
 
-<form action="" method="post">
+<div class="container">
+    <form action="index.php" method="post" onsubmit="return validateForm()">
 
-<h5>EduRate</h5>
-<h2>Sign up Now!</h2>
+        <h5>University of the Assumption</h5>
+        <h2>Sign up for EduRate</h2>
 
-<input class="first-name" type="text" id="first_name" name="first_name" placeholder="First Name" required>
+        <div class="form-group">
+            <input class="first-name" type="text" id="firstname" name="firstname" placeholder="First Name" required>
+        </div>
 
-<input class="last-name" type="text" id="last_name" name="last_name" placeholder="Last Name" required>
+        <div class="form-group">
+            <input class="last-name" type="text" id="lastname" name="lastname" placeholder="Last Name" required>
+        </div>
 
-<input class="user-name" type="text" id="username" name="username" placeholder="Username" required>
-    
-<input class="password" type="text" id="password" name="password" placeholder="Password" required>
-    
+        <div class="form-group">
+            <input class="password" type="password" id="password" name="password" placeholder="Password" required>
+        </div>
 
-    <label for="user_type">User type:  </label>
-    <select name="user_type" >
-    <option value ="Student" name ="user_type">Student</option>
-    <option value ="Teacher" name ="user_type">Teacher</option>
+        <div class="form-group">
+            <input class="user-name" type="text" id="username" name="username" placeholder="Username" required>
+            <div class="user-icon">
+                <i class="fas fa-user"></i>
+            </div>
+        </div>
 
-    <input type="submit" value="Sign Up">
-</form>
+        <div class="form-groups">
+            <h6 style="font-style: italic;">User type:</h6>
+            <select class="user-inputs" id="userType" name="userType" required>
+                <option value="student" selected>Student</option>
+                <option value="teacher">Teacher</option>
+            </select>
+        </div>
+
+        <button class="buttons" type="submit">Sign Up</button>
+
+        <div id="error-message"></div>
+
+    </form>
+</div>
+
+<script src="signupscript.js"></script>
 <?php
 include("sqllogin.php");
 // Create connection

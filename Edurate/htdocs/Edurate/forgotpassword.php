@@ -3,30 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Form</title>
-<link rel="stylesheet" href="styles/loginstyle.css">
+    <title>Forgot Password</title>
+    <link rel="stylesheet" href="forgotpasswordstyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
 
-<body>
-<form action="forgotpassword.php" method="post">
-<div>
-        <input class="user-input" type="text" id="username" name="username" placeholder="User ID" required>
-        <div class="user-icon"><i class="fas fa-user"></i></div>
+<div class="container">
+    <form action="changepassword.php" method="post" onsubmit="return validateForm()">
+
+        <h5>University of the Assumption</h5>
+        <h2>Forgot Password</h2>
+
+        <div class="form-group">
+            <input class="user-input" type="text" id="username" name="username" placeholder="Username" required>
         </div>
 
-        <div >
-            <input class="password-input" type="password" id="password" name="password" placeholder="Password " required>
-            <div class="lock-icon"><i class="fas fa-lock"></i></div>
+        <div class="form-group">
+            <input class="password-input" type="password" id="newPassword" name="newPassword" placeholder="New Password" required>
         </div>
 
-        <div >
-            <input class="user-input" type="password" id="password" name="password" placeholder="Password " required>
-            <div class="lock-icon"><i class="fas fa-lock"></i></div>
+        <div class="form-group">
+            <input class="password-inputs" type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" required>
         </div>
 
-        <button class='buttons' type="submit"> Change Password </button>
-</form>
+        <button class="buttons" type="submit">Change Password</button>
+
+        <div id="error-message"></div>
+
+    </form>
+</div>
+
+<script src="forgotpasswordscript.js"></script>
 <?php
 include("sqllogin.php");
 $connection = mysqli_connect($servername, $username, $password, $database, $port);

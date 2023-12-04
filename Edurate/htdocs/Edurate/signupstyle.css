@@ -1,0 +1,222 @@
+/* Add these styles to your existing CSS file or update the existing ones */
+
+.container {
+    max-width: 400px;
+    height: 400px;
+    margin: auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    top: -50px;
+  }
+
+body {
+    background-image: url(bg.jpg);
+    font-family: 'Inter', sans-serif;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Center the content vertically */
+    margin: 0;
+}
+
+h5, h2 {
+    color: white;
+    text-align: center;
+    font-weight: normal;
+  }
+
+  h6 { 
+    color: white;
+    margin-bottom: 5px;
+    margin-top: 10px;
+  }
+
+  .buttons {
+    background-color: #122197;
+    color: rgb(255, 255, 255);
+    font-weight: 400;
+    padding: 10px 0px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    width: 75%;
+    display: block;
+    margin: 30px auto;
+    text-decoration: none; 
+  }
+
+  .buttons:hover {
+    background-color: #0d1a7d;
+  }
+
+/* Add styles for form-group to handle spacing */
+.form-group {
+    margin-bottom: 7px;
+}
+
+.form-groups {
+    text-align: center;
+}
+/* Add styles for the eye icons in the show-hide span */
+.show-hide {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}
+
+.show-hide {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    background: none;
+  }
+/* Add styles for the select input */
+.user-inputs {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding: 8px;
+    width: 100%;
+    border: none;
+    border-radius: 20px;
+    background-color: rgb(173, 7, 7);
+    cursor: pointer;
+    color: #ffffff;
+    text-align: center;
+    border: none; /* Remove default border */
+    outline: none; /* Remove outline on focus */
+}
+
+.user-inputs:hover {
+  background-color: rgb(150, 5, 5);
+}
+
+.first-name {
+    padding-left: 30px;
+    border: none !important;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    background: linear-gradient(90deg, rgba(210,0,0,1) 0%, rgba(138,0,0,0.583158263305322) 50%, rgba(0,0,0,0) 100%);
+    padding-bottom: 8px !important;
+    padding-top: 8px !important;
+  }
+
+  .first-name::placeholder {
+    text-align: left;
+    padding-right: 30px;
+    color: rgba(217, 217, 217, 0.534);
+  }
+
+  .last-name {
+    padding-left: 30px;
+    border: none !important;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    background: linear-gradient(90deg, rgba(0,0,0,0.006127450980392135) 0%, rgba(138,0,0,0.583158263305322) 50%, rgba(210,0,0,1) 100%);
+    padding-bottom: 8px !important;
+    padding-top: 8px !important;
+  }
+
+  .last-name::placeholder {
+    text-align: right;
+    padding-right: 30px;
+    color: rgba(217, 217, 217, 0.534);
+  }
+
+  .password {
+    padding-left: 30px;
+    border: none !important;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    background: linear-gradient(90deg, rgba(210,0,0,1) 0%, rgba(138,0,0,0.583158263305322) 50%, rgba(0,0,0,0) 100%);
+    padding-bottom: 8px !important;
+    padding-top: 8px !important;
+  }
+
+  .password::placeholder {
+    text-align: left;
+    padding-right: 30px;
+    color: rgba(217, 217, 217, 0.534);
+  }
+
+  .user-name {
+    padding-left: 30px;
+    border: none !important;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    background: linear-gradient(90deg, rgba(0,0,0,0.006127450980392135) 0%, rgba(138,0,0,0.583158263305322) 50%, rgba(210,0,0,1) 100%);
+    padding-bottom: 8px !important;
+    padding-top: 8px !important;
+  }
+
+  .user-name::placeholder {
+    text-align: right;
+    padding-right: 30px;
+    color: rgba(217, 217, 217, 0.534);
+  }
+
+  .user-icon {
+    position: absolute;
+    right: 5%; /* 5% from the right edge of the container */
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%);
+    color: #ffffff;
+}
+
+.toggle-password-checkbox {
+    position: absolute;
+    left: -9999px;
+}
+  
+  /* Style for the toggle password icon */
+  .toggle-password-icon {
+    position: absolute;
+    left: 43.5%; /* Center horizontally */
+    top: 53%;
+    transform: translateX(-50%); /* Center horizontally */
+    color: #ffffff;
+    cursor: pointer;
+}
+  
+  /* Style for the visible and hidden eye icons */
+  .toggle-password-icon i {
+    display: block;
+    font-size: 18px;
+  }
+  
+  /* Hide the eye icon when the checkbox is checked */
+  .toggle-password-checkbox:checked + .toggle-password-icon i::before {
+    display: none;
+}
+  
+  /* Show the crossed eye icon when the checkbox is checked */
+  .toggle-password-checkbox:checked + .toggle-password-icon i::after {
+    display: block;
+    content: '\f070'; /* Unicode for the crossed eye icon */
+}
+
+.first-name,
+.last-name,
+.password,
+.user-name {
+    color: white; 
+}
+
+.first-name:focus,
+.last-name:focus,
+.password:focus,
+.user-name:focus {
+    outline: none; 
+}
