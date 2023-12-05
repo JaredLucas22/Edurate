@@ -59,9 +59,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $updateResult = mysqli_query($connection, $updateQuery);
 
         if ($updateResult) {
-            echo "Password changed successfully. You can now login with your new password.";
+            echo '<script>alert("Password successfully changed")</script>';
         } else {
-            echo "Error updating password: " . mysqli_error($connection);
+            echo '<script>alert("Error updating password:  . mysqli_error($connection)")</script>';
         }
     }
 }

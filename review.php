@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "Error: " . $query . "<br>" . mysqli_error($connection);
         }
     } else {
-        echo "Error: Subject not found.";
+        echo '<script>alert("User not found")</script>';
     }
 }
 

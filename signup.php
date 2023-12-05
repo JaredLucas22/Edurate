@@ -74,7 +74,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (mysqli_query($connection, $query)) {
         echo '<script>alert("User registered successfully!")</script>'; 
     } else {
-        echo "Error: " . $query . "<br>" . mysqli_error($connection);
+        echo '<script>alert("Error: " . $query . "<br>" . mysqli_error($connection")) </script>';
     }
 }
 
