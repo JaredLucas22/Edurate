@@ -10,7 +10,7 @@
 <body>
 
 <div class="container">
-    <form action="index.php" method="post" onsubmit="return validateForm()">
+    <form action="signup.php" method="post" onsubmit="return validateForm()">
 
         <h5>University of the Assumption</h5>
         <h2>Sign up for EduRate</h2>
