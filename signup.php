@@ -72,7 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $query = "INSERT INTO user (First_Name, Last_Name, User_Name, User_Password, User_Type) VALUES ('$firstName', '$lastName', '$username', '$password', '$userType')";
     
     if (mysqli_query($connection, $query)) {
-        echo "User registered successfully!";
+        echo '<script>alert("User registered successfully!")</script>'; 
     } else {
         echo "Error: " . $query . "<br>" . mysqli_error($connection);
     }

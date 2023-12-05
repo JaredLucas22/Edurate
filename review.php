@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                   VALUES ('$reviewerID', '$subjectID', '$rating', '$comment')";
 
         if (mysqli_query($connection, $query)) {
-            echo "Review submitted successfully!";
+            echo '<script>alert("Review Submitted")</script>'; 
         } else {
             echo "Error: " . $query . "<br>" . mysqli_error($connection);
         }
