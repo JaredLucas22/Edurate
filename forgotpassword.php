@@ -10,7 +10,7 @@
 <body>
 
 <div class="container">
-    <form action="changepassword.php" method="post" onsubmit="return validateForm()">
+    <form action="forgotpassword.php" method="post" onsubmit="return validateForm()">
 
         <h5>University of the Assumption</h5>
         <h2>Forgot Password</h2>
