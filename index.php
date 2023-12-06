@@ -17,14 +17,14 @@
         <h2>Log In to EduRate</h2>
         
         <div style="position: relative;">
-            <input class="user-input" type="text" id="username" name="username" placeholder="User ID" required>
+            <input class="user-input" type="text" id="username" name="username" placeholder="User ID">
             <div class="user-icon" style="position: absolute; top: 50%; transform: translateY(-50%); left: 10px;">
                 <i class="fas fa-user"></i>
             </div>
         </div>
 
         <div style="position: relative; margin-top: 5px;">
-        <input class="password-input" type="password" id="password" name="password" placeholder="Password" required>
+        <input class="password-input" type="password" id="password" name="password" placeholder="Password">
         <input type="checkbox" id="togglePassword" class="toggle-password-checkbox">
         <label for="togglePassword" class="toggle-password-icon">
             <i class="fas fa-eye"></i>
