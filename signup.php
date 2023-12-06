@@ -26,10 +26,14 @@
         <div class="form-group">
             <input class="password" type="password" id="password" name="password" placeholder="Password" required>
         </div>
-        <input type="checkbox" id="togglePassword" class="toggle-password-checkbox">
+
+        <div style="position: relative;">
+            <input type="checkbox" id="togglePassword" class="toggle-password-checkbox">
                 <label for="togglePassword" class="toggle-password-icon">
-                    <i class="fas fa-eye" style="position: relative; top:-40px; left: 200px;"></i>
+                    <i class="fas fa-eye" style="position: relative; top:-32px; left: 84px;"></i>
                 </label>
+        </div>
+
 
         <div class="form-group">
             <input class="user-name" type="text" id="username" name="username" placeholder="Username" required>
@@ -55,6 +59,8 @@
 
 <script src="signupscript.js"></script>
 <script src="forgotpasswordscript.js"></script>
+
+
 <?php
 include("sqllogin.php");
 // Create connection
