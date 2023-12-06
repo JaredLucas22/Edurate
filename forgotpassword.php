@@ -46,8 +46,9 @@ if (!$connection) {
 // If the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = mysqli_real_escape_string($connection, $_POST["username"]);
-    $newPassword = $_POST["new_password"];
-    $confirmPassword = $_POST["confirm_password"];
+    $newPassword = $_POST["newPassword"];
+$confirmPassword = $_POST["confirmPassword"];
+
 
     // Verify that the passwords match
     if ($newPassword !== $confirmPassword) {
