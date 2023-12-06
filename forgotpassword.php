@@ -52,7 +52,7 @@ $confirmPassword = $_POST["confirmPassword"];
 
     // Verify that the passwords match
     if ($newPassword !== $confirmPassword) {
-        echo "Passwords do not match. Please try again.";
+        echo '<script>alert("Passwords does not match. Please try again")</script>';
     } else {
         // Update the password (without hashing for mock purposes)
         $updateQuery = "UPDATE user SET User_Password = '$newPassword' WHERE User_Name = '$username'";
