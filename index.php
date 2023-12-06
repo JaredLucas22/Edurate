@@ -15,7 +15,7 @@
         <form action="index.php" method="post" onsubmit="return validateForm()">
 
             <h5>University of the Assumption</h5>
-            <h2>JJJLog In to EduRate</h2>
+            <h2>Log In to EduRate</h2>
 
             <div style="position: relative;">
                 <input class="user-input" type="text" id="username" name="username" placeholder="User ID">
