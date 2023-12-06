@@ -31,7 +31,7 @@
                     <i class="fas fa-eye"></i>
                 </label>
                 <div style="padding-bottom: 50px; padding-top: 12px;">
-                    <a style="font-style:italic; font-size:10px; color: rgb(255, 255, 255);" href="forgotpassword.php">Forgot Password?</a>
+                    <a style="font-style:italic; font-size:10px; color: rgb(255, 255, 255);" href="forgotpassword.html">Forgot Password?</a>
                 </div>
             </div>
 
