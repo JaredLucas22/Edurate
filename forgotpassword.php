@@ -20,11 +20,23 @@
         </div>
 
         <div class="form-group">
-            <input class="password-input" type="password" id="newPassword" name="newPassword" placeholder="New Password" required>
+            <div style="position: relative;">
+                <input class="password-input" type="password" id="newPassword" name="newPassword" placeholder="New Password">
+                <input type="checkbox" id="toggleNewPassword" class="toggle-password-checkbox">
+                <label for="toggleNewPassword" class="toggle-password-icon">
+                    <i class="fas fa-eye" style="position: relative; bottom: -7px; right: -3px;"></i>
+                </label>
+            </div>
         </div>
 
         <div class="form-group">
-            <input class="password-inputs" type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" required>
+            <div style="position: relative;">
+                <input class="password-inputs" type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password">
+                <input type="checkbox" id="toggleConfirmPassword" class="toggle-password-checkbox">
+                <label for="toggleConfirmPassword" class="toggle-password-icon">
+                    <i class="fas fa-eye" style="position: relative; bottom: -7px; right: -3px;"></i>
+                </label>
+            </div>
         </div>
 
         <button class="buttons" type="submit">Change Password</button>
@@ -33,6 +45,9 @@
 
     </form>
 </div>
+
+<!-- Include the JavaScript file -->
+<script src="forgotten.js"></script>
 
 <?php
 include("sqllogin.php");
