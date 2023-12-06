@@ -34,7 +34,6 @@
     </form>
 </div>
 
-<script src="forgotpasswordscript.js"></script>
 <?php
 include("sqllogin.php");
 $connection = mysqli_connect($servername, $username, $password, $database, $port);

@@ -24,11 +24,11 @@
         </div>
 
         <div style="position: relative; margin-top: 5px;">
-            <input class="password-input" type="password" id="password" name="password" placeholder="Password" required>
-            <input type="checkbox" id="togglePassword" class="toggle-password-checkbox">
-            <label for="togglePassword" class="toggle-password-icon">
-                <i class="fas fa-eye"></i>
-            </label>
+        <input class="password-input" type="password" id="password" name="password" placeholder="Password" required>
+        <input type="checkbox" id="togglePassword" class="toggle-password-checkbox">
+        <label for="togglePassword" class="toggle-password-icon">
+            <i class="fas fa-eye"></i>
+        </label>
             <div style="padding-bottom: 50px; padding-top: 12px;">
                 <a style="font-style:italic; font-size:10px; color: rgb(255, 255, 255);" href="forgotpassword.php">Forgot Password?</a>
             </div>
@@ -41,6 +41,7 @@
         <a class='buttons1' href="signup.php">Sign Up</a>
         
     </form>
+    <script src="forgotpasswordscript.js"></script>
 </div>
 </body>
 <?php 

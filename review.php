@@ -1,5 +1,4 @@
 <?php
-session_start();
 
 include("sqllogin.php");
 $connection = mysqli_connect($servername, $username, $password, $database, $port);
@@ -11,7 +10,7 @@ if (!$connection) {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Assuming you store the user ID in the session during login
     $reviewerID = $_SESSION["user_id"];
-    $rating = $_POST["rating"];
+    $rating = isset($_POST['rating']) ? $_POST['rating'][0] : '';
     $comment = $_POST["comment"];
     $subjectUsername = $_POST["subject"]; // Assuming subject now contains the username
 
