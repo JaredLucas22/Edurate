@@ -49,39 +49,5 @@
 <!-- Include the JavaScript file -->
 <script src="forgotten.js"></script>
 
-<?php
-include("sqllogin.php");
-$connection = mysqli_connect($servername, $username, $password, $database, $port);
-
-if (!$connection) {
-    die("Connection failed: " . mysqli_connect_error());
-}
-
-
-// If the form is submitted
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = mysqli_real_escape_string($connection, $_POST["username"]);
-    $newPassword = $_POST["newPassword"];
-$confirmPassword = $_POST["confirmPassword"];
-
-
-    // Verify that the passwords match
-    if ($newPassword !== $confirmPassword) {
-        echo '<script>alert("Passwords does not match. Please try again")</script>';
-    } else {
-        // Update the password (without hashing for mock purposes)
-        $updateQuery = "UPDATE user SET User_Password = '$newPassword' WHERE User_Name = '$username'";
-        $updateResult = mysqli_query($connection, $updateQuery);
-
-        if ($updateResult) {
-            echo '<script>alert("Password successfully changed")</script>';
-        } else {
-            echo '<script>alert("Error updating password:  . mysqli_error($connection)")</script>';
-        }
-    }
-}
-
-mysqli_close($connection);
-?>
 </body>
 </html>
