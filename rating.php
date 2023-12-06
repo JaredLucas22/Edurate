@@ -3,169 +3,147 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Dashboard</title>
-    <style>
-        
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            text-align: center;
-            margin-top: 50px;
-        }
-
-        .login-container {
-            width: 300px;
-            margin: 0 auto;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        input[type="submit"] {
-            background-color: #4caf50;
-            color: white;
-            padding: 10px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        .rating-container {
-  display: flex;
-  align-items: center;
-}
-
-.rating-button {
-  --ellipse-color: orange; /* You can change this color as needed */
-  width: 1em;
-  height: 0.7em;
-  background-color: var(--ellipse-color);
-  border-radius: 50%;
-  margin: 1em auto;
-  font-size: 10em;
-  position: relative;
-  display: block;
-}
-
-/* Add this style for the selected rating */
-.rating-button.selected {
-  --ellipse-color-selected: red; /* You can change this color to red */
-  background-color: var(--ellipse-color-selected);
-}
-
-
-    </style>
+    <title> Rating Page </title>
+    <link rel="stylesheet" href="newstyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
-<link rel="stylsheet" href="styles/loginstyle.css">
 <body>
 
-<div class="review-container">
-    <h2>Submit a Subject Review</h2>
-    <form id="reviewForm" action="review.php" method="post">
-        <label for="subject">Subject:</label>
-        <input type="text" id="subject" name="subject" required>
-
-        <label for="rating">Rating:</label>
-        <div class="rating-container">
-            <?php for ($i = 1; $i <= 5; $i++) { ?>
-                <button type="button" class="rating-button" data-rating="<?php echo $i; ?>"></button>
-            <?php } ?>
+    <div class="container">
+        <div class="user-container">
+            <div class="person">
+                <div class="picture">
+                    <img src="anonymous.png" alt="Picture 1" class="user-image" data-target="star1">
+                </div>
+                <div class="name">
+                    <p>Anonymous</p>
+                </div>
+            </div>
+            <div class="person">
+                <div class="picture">
+                    <img src="j.jpg" alt="Picture 2" class="user-image" data-target="star2">
+                </div>
+                <div class="name">
+                    <p>John Doe</p>
+                </div>
+            </div>
         </div>
-        <input type="hidden" id="rating" name="rating" value="">
-</div>
 
-<div class="feedback-container">
-        <h2>What you liked:</h2>
-        <input type="checkbox" id="expertise" name="expertise">
-        <label for="expertise">Expertise and Knowledge</label><br>
+          <div class="text1">Five-point Scale Rating</div>
 
-        <input type="checkbox" id="clearCommunication" name="clearCommunication">
-        <label for="clearCommunication">Clear Communication</label><br>
+          <form action="#" method="post" onsubmit="return validateForm()">
+            <div class="rating">
+              <input type="radio" id="star5" name="rating" value="5" />
+              <label for="star5" title="text">5 stars</label>
+              <input type="radio" id="star4" name="rating" value="4" />
+              <label for="star4" title="text">4 stars</label>
+              <input type="radio" id="star3" name="rating" value="3" />
+              <label for="star3" title="text">3 stars</label>
+              <input type="radio" id="star2" name="rating" value="2" />
+              <label for="star2" title="text">2 stars</label>
+              <input type="radio" id="star1" name="rating" value="1" />
+              <label for="star1" title="text">1 star</label>
+            </div>
+    
+            <div class="checkbox">
+                <form class="checkbox-section" action="#" method="post">
+                    <div class="first">
+                      <h2 class="qone">What do you like about the professor?</h2>
+                      <div class="scrollable-content">
+                        <input type="checkbox" id="question1a" name="question1" />
+                        <label for="question1a">Knowledge and Expertise</label>
+                        <input type="checkbox" id="question2a" name="question2" />
+                        <label for="question2a">Clear Communication</label>
+                        <input type="checkbox" id="question3a" name="question3" />
+                        <label for="question3a">Effective Teaching Methods</label>
+                        <input type="checkbox" id="question4a" name="question4" />
+                        <label for="question4a">Approachability</label>
+                        <input type="checkbox" id="question5a" name="question5" />
+                        <label for="question5a">Engaging Lectures</label>
+                        <input type="checkbox" id="question6a" name="question6" />
+                        <label for="question6a">Provides Useful Feedback</label>
+                        <input type="checkbox" id="question7a" name="question7" />
+                        <label for="question7a">Fair Grading Practices</label>
+                        <input type="checkbox" id="question8a" name="question8" />
+                        <label for="question8a">Enthusiasm for the Subject</label>
+                      </div>
+                    </div>
+          
+                    <div class="second">
+                        <h2 class="qtwo">Are there any areas where you believe the professor
+                          could make improvements?</br></h2>
+                        <div class="scrollable-content">
+                          <input type="checkbox" id="question1b" name="question1" />
+                          <label for="question1b">Availability for Office Hours</label>
+                          <input type="checkbox" id="question2b" name="question2" />
+                          <label for="question2b">Course Organization</label>
+                          <input type="checkbox" id="question3b" name="question3" />
+                          <label for="question3b">Inclusivity and Respect</label>
+                          <input type="checkbox" id="question4b" name="question4" />
+                          <label for="question4b">Assessment and Grading</label>
+                          <input type="checkbox" id="question5a" name="question5" />
+                          <label for="question5a">Uses Varied Teaching Methods</label>
+                          <input type="checkbox" id="question6a" name="question6" />
+                          <label for="question6a">Flexibility in Teaching Approach</label>
+                          <input type="checkbox" id="question7a" name="question7" />
+                          <label for="question7a">Organized Course Materials</label>
+                          <input type="checkbox" id="question8a" name="question8" />
+                          <label for="question8a">Encourages Class Participation</label>
+                        </div>
+                      </div>
 
-        <input type="checkbox" id="effectiveTeaching" name="effectiveTeaching">
-        <label for="effectiveTeaching">Effective Teaching Methods</label><br>
+                    <textarea id="feedback" name="feedback" rows="4">Write Feedback</textarea>
 
-        <input type="checkbox" id="approachability" name="approachability">
-        <label for="approachability">Approachability</label><br>
-
-        <h2>Areas for improvement:</h2>
-        <input type="checkbox" id="availability" name="availability">
-        <label for="availability">Availability for Office Hours</label><br>
-
-        <input type="checkbox" id="courseOrganization" name="courseOrganization">
-        <label for="courseOrganization">Course Organization</label><br>
-
-        <input type="checkbox" id="inclusivity" name="inclusivity">
-        <label for="inclusivity">Inclusivity and Respect</label><br>
-
-        <input type="checkbox" id="assessment" name="assessment">
-        <label for="assessment">Assessment and Grading</label><br>
-
-        <h2>Additional Comments:</h2>
-        <textarea id="comment" name="comment" rows="4" required></textarea>
-        <input type="submit" value="Submit your feedback">
-    </form>
-</div>
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        var ratingButtons = document.querySelectorAll('.rating-button');
-
-        ratingButtons.forEach(function (button, index) {
-            button.addEventListener('click', function () {
-                for (var i = 0; i <= index; i++) {
-                    ratingButtons[i].classList.add('selected');
+                    <button>Submit</button> 
+    
+            </div>
+    </div>
+    
+    <script>
+        const userImages = document.querySelectorAll('.user-image');
+    
+        userImages.forEach(image => {
+            image.addEventListener('click', function() {
+                const targetId = this.getAttribute('data-target');
+                const targetRadio = document.getElementById(targetId);
+    
+                if (targetRadio) {
+                    targetRadio.checked = true;
+    
+                    // Uncheck other radios if needed
+                    const radios = document.querySelectorAll('input[type="radio"][name="rating"]');
+                    radios.forEach(radio => {
+                        if (radio !== targetRadio) {
+                            radio.checked = false;
+                        }
+                    });
+    
+                    // Scaling effect
+                    userImages.forEach(img => {
+                        img.classList.remove('selected');
+                    });
+                    this.classList.add('selected');
                 }
-
-                for (var i = index + 1; i < ratingButtons.length; i++) {
-                    ratingButtons[i].classList.remove('selected');
-                }
-
-                document.getElementById('rating').value = button.getAttribute('data-rating');
             });
         });
-
-        document.getElementById("myForm").addEventListener("submit", function(event) {
-            var checkboxes = document.querySelectorAll('input[type="checkbox"]');
-            var checked = false;
-
-            for (var i = 0; i < checkboxes.length; i++) {
-                if (checkboxes[i].checked) {
-                    checked = true;
-                    break;
-                }
-            }
-
-            if (!checked) {
-                alert("Error: Fill in the required checklist");
-                event.preventDefault();
-            }
-
-            var rating = document.getElementById('rating').value;
-
-            if (!rating) {
-                alert("Error: Please provide a rating");
-                event.preventDefault();
-            }
-        });
-    });
-</script>
+    </script>
 <?php
-include("user.php");
+//include("user.php");
 
 // Fetch user data from the database based on the stored session user_id
-$userID = $_SESSION["user_id"];
-$query = "SELECT First_Name, Last_Name FROM user WHERE User_ID = '$userID'";
-$result = mysqli_query($connection, $query);
+//$userID = $_SESSION["user_id"];
+//$query = "SELECT First_Name, Last_Name FROM user WHERE User_ID = '$userID'";
+//$result = mysqli_query($connection, $query);
 
-if ($result && mysqli_num_rows($result) > 0) {
-    $user = mysqli_fetch_assoc($result);
-    echo "Welcome, " . $user["First_Name"] . " " . $user["Last_Name"] . "!";
-} else {
-    echo "Error fetching user data.";
-}
+//if ($result && mysqli_num_rows($result) > 0) {
+    //$user = mysqli_fetch_assoc($result);
+    //echo "Welcome, " . $user["First_Name"] . " " . $user["Last_Name"] . "!";
+//} else {
+ //   echo "Error fetching user data.";
+//}
 
 // Include the review.php file
-include("review.php");
+//include("review.php");
 ?>
 </body>
 </html>

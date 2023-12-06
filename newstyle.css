@@ -1,0 +1,250 @@
+body {
+    background-image: url("bg1.jpg");
+    background-size: cover;
+    background-position: center;
+    font-family: 'Inter', sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+  }
+
+  .container {
+    width: 300px;
+    height: 450px;
+    margin: auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    top: -50px;
+  }
+
+  .user-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 0;
+    color: white;
+    width: 75%;
+    padding-top: 10px;
+    height: 75px;
+    border-radius: 20px;
+    margin: auto;
+    background-color: rgba(0, 0, 0, 0.312);
+  }
+  
+  .person {
+    text-align: center;
+  }
+  
+  .picture img {
+    width: 100px; /* Adjust the size as needed */
+    height: 100px; /* Adjust the size as needed */
+    border-radius: 50%; /* Make the image round */
+    object-fit: cover; /* Maintain image aspect ratio */
+  }
+  
+  .name p {
+    font-size: 10px;
+    font-weight: bold;
+    margin-top: 0px;
+  }
+
+  .picture img {
+    width: 40px; /* Set the desired width */
+    height: auto; /* Let the height adjust proportionally */
+}
+
+.text1 {
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* stars rating*/
+.rating {
+  background-color: rgba(0, 0, 0, 0);
+  width: 90%;
+  height: 10px;
+  margin-top: 10px;
+}
+
+.rating:not(:checked) > input {
+  position: absolute;
+  top: -9999px;
+  clip: rect(0, 0, 0, 0);
+}
+
+.rating:not(:checked) > label {
+  float: right;
+  width: 1.5em;
+  height: 1em;
+  border-radius: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  cursor: pointer;
+  font-size: 200%;
+  line-height: 1.2;
+  color: #ddd;
+  text-align: center;
+}
+
+.rating:not(:checked) > label:before {
+  content: '★';
+  display: block;
+  line-height: 1em;
+}
+
+.rating > input:checked ~ label {
+  color: yellow;
+}
+
+.rating:not(:checked) > label:hover,
+.rating:not(:checked) > label:hover ~ label {
+  color: yellow;
+}
+
+.rating > input:checked + label:hover,
+.rating > input:checked + label:hover ~ label,
+.rating > input:checked ~ label:hover,
+.rating > input:checked ~ label:hover ~ label,
+.rating > label:hover ~ input:checked ~ label {
+  color: yellow;
+}
+
+.rating > label:active {
+  position: relative;
+  top: 2px;
+  left: 2px;
+}
+
+/* checkbox */
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  color: white;
+  width: 100%;
+  height: 350px;
+  border-radius: 20px;
+  margin: auto;
+  background-color: rgba(0, 0, 0, 0);
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+/*checkbox section*/
+.qone, .qtwo {
+  font-size: 12px;
+
+}
+
+.first {
+  width: 80%; /* Adjust width to fit container */
+  height: 90px;
+  padding: 10px; /* Add padding for spacing inside the box */
+  border-radius: 10px; /* Reduce border radius for a softer look */
+  color: white;
+  text-align: left;
+}
+
+.second {
+  width: 80%; /* Adjust width to fit container */
+  height: 90px;
+  padding: 10px; /* Add padding for spacing inside the box */
+  border-radius: 10px; /* Reduce border radius for a softer look */
+  color: white;
+  text-align: left;
+}
+
+.scrollable-content {
+  max-height: 40px; 
+  overflow-y: auto; 
+  padding: 10px;
+}
+
+.scrollable-content input {
+  float: left;
+  clear: left;
+  margin-right: 10px;
+}
+
+.scrollable-content label {
+  display: block;
+  margin-bottom: 10px; 
+  font-size: 10px;
+}
+
+.scrollable-content input[type="checkbox"] {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+  transform: translateY(-2px);
+}
+
+.scrollable-content::-webkit-scrollbar {
+  width: 5px;
+}
+
+.scrollable-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollable-content::-webkit-scrollbar-thumb {
+  background: rgb(255, 255, 255);
+  border-radius: 30px;
+}
+
+.scrollable-content span {
+  margin-left: 10px;
+  display: block;
+}
+/*feedback section*/
+
+
+#feedback {
+  border-radius: 5px;
+  color: rgb(0, 0, 0);
+  width: 75%;
+  background: white;
+  padding: 10px;
+  margin-top: 10%; 
+  height: 20px;
+  border: none;
+}
+
+
+button {
+  background-color: #122197;
+  color: rgb(255, 255, 255);
+  font-weight: 400;
+  padding: 7px 0px;
+  border: none;
+  margin-top: 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  width: 50%;
+  display: block;
+  text-decoration: none; 
+  font-size: 15px;
+}
+
+button:hover {
+  background-color: #0d1a7d;
+}
+
+#feedback:focus {
+  outline: none;
+}
+
+.user-image {
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.selected {
+  transform: scale(1.2);
+  border: 3px solid white;
+}
